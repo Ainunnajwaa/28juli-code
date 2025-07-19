@@ -26,3 +26,4 @@ function playMusic() {
     console.error(error);
   });
 }
+
