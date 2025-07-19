@@ -250,6 +250,18 @@
       document.getElementById("musicBtn").style.display = "none";
     }
   </script>
+  <!-- Tambahkan di dalam <body> kamu sebelum </body> -->
+<!-- Tombol musik -->
+<button id="musicBtn" onclick="playMusic()">🔊 Putar Musik</button>
+
+<!-- Iframe YouTube (tidak disembunyikan total) -->
+<iframe id="ytMusic" width="1" height="1" style="position: fixed; bottom: 10px; right: 10px; opacity: 0.01; z-index: 1;"
+  src=""
+  frameborder="0"
+  allow="autoplay"
+  allowfullscreen>
+</iframe>
+
 
 </body>
 </html>
