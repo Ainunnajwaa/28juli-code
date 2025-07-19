@@ -2,40 +2,100 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Musik Web Personal</title>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Birthday myboyfiee 💌</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
   <style>
-    body {
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
       font-family: 'Dancing Script', cursive;
-      background-color: #fff0f5;
-      color: #333;
+      color: #543a2b;
+      background-image: url('heart.jpg');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      background-attachment: fixed;
+      background-color: #f5efe6;
+      min-height: 100vh;
+      overflow-x: hidden;
     }
 
-    .container {
-      padding: 40px;
-      max-width: 800px;
-      margin: auto;
+    section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 20px;
       text-align: center;
+      background: rgba(255, 255, 255, 0.85);
+      margin: 30px auto;
+      max-width: 750px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
     }
 
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5em;
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h1, h2 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      color: #7a4a4a;
+      text-shadow: 1px 1px 2px #fce4ec;
     }
 
     p {
-      font-size: 1.5rem;
-      line-height: 1.6;
+      font-size: 1.3rem;
+      max-width: 90%;
+      color: #5a3a3a;
+      white-space: pre-line;
     }
 
-    .quote {
-      margin-top: 40px;
-      font-style: italic;
-      font-size: 1.2rem;
-      color: #555;
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 30px;
+      width: 100%;
+    }
+
+    .gallery img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 1.1rem;
+      color: #7a4a4a;
+      font-weight: 600;
+      text-shadow: 1px 1px 2px #fce4ec;
     }
 
     #musicBtn {
@@ -59,23 +119,31 @@
       transform: scale(1.05);
     }
 
-    /* Scroll animation */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
+    @media (max-width: 600px) {
+      h1, h2 {
+        font-size: 2.2rem;
+      }
 
-    .fade-in.visible {
-      opacity: 1;
-      transform: none;
+      p {
+        font-size: 1.1rem;
+      }
+
+      section {
+        margin: 20px 15px;
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
   </style>
 </head>
 <body>
 
+  <!-- Tombol musik -->
   <button id="musicBtn" onclick="playMusic()">🔊 Putar Musik</button>
 
+  <!-- Iframe YouTube disembunyikan -->
   <div style="display: none;">
     <iframe id="ytMusic" width="0" height="0"
       src=""
@@ -85,34 +153,102 @@
     </iframe>
   </div>
 
-  <div class="container">
-    <h1 class="fade-in">Selamat Datang</h1>
-    <p class="fade-in">Ini adalah halaman personal dengan musik latar dari YouTube 🎶</p>
-    <p class="quote fade-in">"Musik adalah suara hati yang tak bisa diungkapkan dengan kata."</p>
-  </div>
+  <!-- Section 1 -->
+  <section class="reveal">
+    <h1>💌 Love Latter Untuk Cintaku</h1>
+    <h1>28-07-2025</h1>
+    <p> Halooo ada yang spesial hari ini, hari ini adalah ulang tahunmu ,hari yang paling buat aku bahagia karna kamu
+      lahir di dunia ini dan aku mau kamu tau... betapa dalamnya aku mencintaimu.</p>
+  </section>
+
+  <!-- Section 2 -->
+  <section class="reveal">
+    <h2>🎂 Selamat Ulang Tahun Sayangku </h2>
+    <p>Semoga kebahagiaanmu hari ini berlipat ganda setiap tahunnya,Semoga cintaku bisa selalu menemani langkahmu,
+      Semoga di hari spesial ini semua doa yang mama,bapa dan kamu panjatin bakal terkabul,kamu sehat panjang umur dan
+      selalu dilindungi Allah,Semoga kamu diberi Kelancaran yaa di setiap langkah yang kamu ambil.
+    </p>
+  </section>
+
+  <!-- Section 3 -->
+  <section class="reveal">
+    <h2>📸 Slice of Our Gallery </h2>
+    <p>12 potongan waktu yang penuh cinta—momen kecil tapi bermakna besar dalam hidup kita
+      nanti kita tambah lagi ya gallery cinta nya.</p>
+    <div class="gallery">
+      <img src="foto1.jpg" alt="Foto 1" />
+      <img src="foto2.jpg" alt="Foto 2" />
+      <img src="foto3.jpg" alt="Foto 3" />
+      <img src="foto4.jpg" alt="Foto 4" />
+      <img src="foto5.jpg" alt="Foto 5" />
+      <img src="foto6.jpg" alt="Foto 6" />
+      <img src="foto7.jpg" alt="Foto 7" />
+      <img src="foto8.jpg" alt="Foto 8" />
+      <img src="foto9.jpg" alt="Foto 9" />
+      <img src="foto10.jpg" alt="Foto 10" />
+      <img src="foto11.jpg" alt="Foto 11" />
+      <img src="foto12.jpg" alt="Foto 12" />
+    </div>
+  </section>
+
+  <!-- Section 4 -->
+  <section class="reveal">
+    <h2>🫶 from my deepest heart</h2>
+    <p>Aku ingin jadi alasan kamu bahagia setiap hari. yang nemenin kamu bukan cuma di ulang tahun, tapi di setiap detik
+      hidupmu.</p>
+  </section>
+
+  <!-- Section 5 -->
+  <section class="reveal">
+    <h2>💖 doa tulus untukmu</h2>
+    <p>
+      aku selalu berdoa agar setiap langkahmu dimudahkan, setiap mimpimu tercapai,setiap kesempatan yang ada selalu kamu
+      pergunain dengan baik,
+      dan setiap harimu penuh cinta—dari semesta dan dariku.
+      Karena kamu pantas mendapatkan yang terbaik di dunia ini.
+    </p>
+  </section>
+
+  <!-- Section 6 -->
+  <section class="reveal">
+    <h2>✨ in future</h2>
+    <p>
+      aku gak tahu apa yang akan terjadi besok.
+      tapi satu hal yang aku yakini—aku mau menjalani semuanya bersamamu.
+      merayakan ulang tahun demi ulang tahun, menua bersama,
+      dan menciptakan kisah cinta yang tak akan terlupakan.
+      bahagia terus ya, cintaku 💖
+      love you more than words,
+      forever sounds good if it’s with you 🤍✨
+    </p>
+  </section>
+
+  <footer>
+    Created with full of love 💞 by ainun cantik yang mencintaimu dengan tulus 💖
+  </footer>
 
   <script>
-    function playMusic() {
-      const videoID = "D-VytLhH-KE";
-      const ytFrame = document.getElementById("ytMusic");
-      ytFrame.src = `https://www.youtube.com/embed/${videoID}?autoplay=1&loop=1&playlist=${videoID}`;
-      document.getElementById("musicBtn").style.display = "none";
-    }
-
-    // Reveal animation on scroll
+    // Scroll reveal effect
+    const sections = document.querySelectorAll('.reveal');
     function revealOnScroll() {
-      const elements = document.querySelectorAll(".fade-in");
-      const windowHeight = window.innerHeight;
-      elements.forEach(function (el) {
-        const position = el.getBoundingClientRect().top;
-        if (position < windowHeight - 50) {
-          el.classList.add("visible");
+      const triggerBottom = window.innerHeight * 0.85;
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        if (top < triggerBottom) {
+          section.classList.add('visible');
         }
       });
     }
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
 
-    window.addEventListener("scroll", revealOnScroll);
-    window.addEventListener("load", revealOnScroll);
+    // YouTube music
+    function playMusic() {
+      const videoID = "D-VytLhH-KE";
+      const iframe = document.getElementById("ytMusic");
+      iframe.src = `https://www.youtube.com/embed/${videoID}?autoplay=1&loop=1&playlist=${videoID}`;
+      document.getElementById("musicBtn").style.display = "none";
+    }
   </script>
 
 </body>
