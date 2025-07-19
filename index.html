@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <title>Birthday myboyfiee 💌</title>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
   <style>
@@ -70,10 +70,13 @@
 
     .gallery {
       display: grid;
-      grid-template-columns: repeat(3, 1fr); /* 3 kolom */
+      grid-auto-flow: column;
+      grid-template-rows: repeat(3, 1fr); /* 3 baris */
       gap: 15px;
       margin-top: 30px;
       width: 100%;
+      overflow-x: auto;
+      padding-bottom: 10px;
     }
 
     .gallery img {
@@ -115,7 +118,8 @@
       }
 
       .gallery {
-        grid-template-columns: repeat(2, 1fr); /* 2 kolom di HP */
+        grid-auto-flow: column;
+        grid-template-rows: repeat(3, 1fr);
       }
     }
   </style>
@@ -123,34 +127,29 @@
 
 <body>
 
-  <!-- Musik romantis autoplay -->
-  <audio autoplay loop>
+  <!-- Musik romantis autoplay dengan dukungan mobile -->
+  <audio id="bgMusic" autoplay loop muted playsinline>
     <source src="lagu.mp3" type="audio/mpeg" />
     Browser kamu tidak mendukung audio.
   </audio>
 
   <!-- Section 1 -->
   <section class="reveal">
-    <h1>💌 Love Latter Untuk Cintaku</h1>
+    <h1>💌 Love Letter Untuk Cintaku</h1>
     <h1>28-07-2025</h1>
-    <p> Halooo ada yang spesial hari ini, hari ini adalah ulang tahunmu ,hari yang paling buat aku bahagia karna kamu
-      lahir di dunia ini dan aku mau kamu tau... betapa dalamnya aku mencintaimu.</p>
+    <p> Halooo ada yang spesial hari ini, hari ini adalah ulang tahunmu, hari yang paling buat aku bahagia karena kamu lahir di dunia ini dan aku mau kamu tau... betapa dalamnya aku mencintaimu.</p>
   </section>
 
   <!-- Section 2 -->
   <section class="reveal">
     <h2>🎂 Selamat Ulang Tahun Sayangku </h2>
-    <p>Semoga kebahagiaanmu hari ini berlipat ganda setiap tahunnya,Semoga cintaku bisa selalu menemani langkahmu,
-      Semoga di hari spesial ini semua doa yang mama,bapa dan kamu panjatin bakal terkabul,kamu sehat panjang umur dan
-      selalu dilindungi Allah,Semoga kamu diberi Kelancaran yaa di setiap langkah yang kamu ambil.
-    </p>
+    <p>Semoga kebahagiaanmu hari ini berlipat ganda setiap tahunnya. Semoga cintaku bisa selalu menemani langkahmu. Semoga di hari spesial ini semua doa yang mama, bapa, dan kamu panjatkan bakal terkabul. Kamu sehat, panjang umur, dan selalu dilindungi Allah. Semoga kamu diberi kelancaran di setiap langkah yang kamu ambil.</p>
   </section>
 
   <!-- Section 3: Galeri -->
   <section class="reveal">
-    <h2>📸 Slice of Our Gallery </h2>
-    <p>12 potongan waktu yang penuh cinta—momen kecil tapi bermakna besar dalam hidup kita
-      nanti kita tambah lagi ya gallery cinta nya.</p>
+    <h2>📸 Slice of Our Gallery</h2>
+    <p>12 potongan waktu yang penuh cinta—momen kecil tapi bermakna besar dalam hidup kita. Nanti kita tambah lagi ya gallery cintanya.</p>
     <div class="gallery">
       <img src="foto1.jpg" alt="Foto 1" />
       <img src="foto2.jpg" alt="Foto 2" />
@@ -170,16 +169,15 @@
   <!-- Section 4 -->
   <section class="reveal">
     <h2>🫶 from my deepest heart</h2>
-    <p>Aku ingin jadi alasan kamu bahagia setiap hari. yang nemenin kamu bukan cuma di ulang tahun, tapi di setiap detik
-      hidupmu.</p>
+    <p>Aku ingin jadi alasan kamu bahagia setiap hari. Yang nemenin kamu bukan cuma di ulang tahun, tapi di setiap detik hidupmu.</p>
   </section>
 
   <!-- Section 5: Tambahan 1 -->
   <section class="reveal">
     <h2>💖 doa tulus untukmu</h2>
     <p>
-      aku selalu berdoa agar setiap langkahmu dimudahkan, setiap mimpimu tercapai,setiap kesempatan yang ada selalu kamu
-      pergunain dengan baik,
+      Aku selalu berdoa agar setiap langkahmu dimudahkan, setiap mimpimu tercapai, setiap kesempatan yang ada selalu kamu
+      pergunakan dengan baik,
       dan setiap harimu penuh cinta—dari semesta dan dariku.
       Karena kamu pantas mendapatkan yang terbaik di dunia ini.
     </p>
@@ -189,19 +187,19 @@
   <section class="reveal">
     <h2>✨ in future</h2>
     <p>
-      aku gak tahu apa yang akan terjadi besok.
-      tapi satu hal yang aku yakini—aku mau menjalani semuanya bersamamu.
-      merayakan ulang tahun demi ulang tahun, menua bersama,
+      Aku gak tahu apa yang akan terjadi besok.
+      Tapi satu hal yang aku yakini—aku mau menjalani semuanya bersamamu.
+      Merayakan ulang tahun demi ulang tahun, menua bersama,
       dan menciptakan kisah cinta yang tak akan terlupakan.
-      bahagia terus ya, cintaku 💖
-      love you more than words,
-      forever sounds good if it’s with you 🤍✨
+      Bahagia terus ya, cintaku 💖
+      Love you more than words,
+      Forever sounds good if it’s with you 🤍✨
     </p>
   </section>
 
   <!-- Footer -->
   <footer>
-    Created with full of love 💞 by ainun cantik yang mencintaimu dengan tulus 💖
+    Created with full of love 💞 by Ainun cantik yang mencintaimu dengan tulus 💖
   </footer>
 
   <script>
@@ -221,5 +219,4 @@
   </script>
 
 </body>
-
 </html>
