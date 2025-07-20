@@ -119,6 +119,18 @@
       transform: scale(1.05);
     }
 
+    /* Buat iframe (div) player disembunyikan tapi tetap ada */
+    #ytMusic {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      width: 200px;
+      height: 200px;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
     @media (max-width: 600px) {
       h1, h2 {
         font-size: 2.2rem;
@@ -143,15 +155,8 @@
   <!-- Tombol musik -->
   <button id="musicBtn" onclick="playMusic()">🔊 Putar Musik</button>
 
-  <!-- Iframe YouTube disembunyikan -->
-  <div style="display: none;">
-    <iframe id="ytMusic" width="0" height="0"
-      src=""
-      frameborder="0"
-      allow="autoplay"
-      allowfullscreen>
-    </iframe>
-  </div>
+  <!-- Tempat player YouTube API -->
+  <div id="ytMusic"></div>
 
   <!-- Section 1 -->
   <section class="reveal">
@@ -227,41 +232,16 @@
     Created with full of love 💞 by ainun cantik yang mencintaimu dengan tulus 💖
   </footer>
 
+  <!-- YouTube Iframe API -->
+  <script src="https://www.youtube.com/iframe_api"></script>
   <script>
-    // Scroll reveal effect
-    const sections = document.querySelectorAll('.reveal');
-    function revealOnScroll() {
-      const triggerBottom = window.innerHeight * 0.85;
-      sections.forEach(section => {
-        const top = section.getBoundingClientRect().top;
-        if (top < triggerBottom) {
-          section.classList.add('visible');
-        }
-      });
-    }
-    window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('load', revealOnScroll);
+    let player;
 
-    // YouTube music
-    function playMusic() {
-      const videoID = "D-VytLhH-KE";
-      const iframe = document.getElementById("ytMusic");
-      iframe.src = `https://www.youtube.com/embed/${videoID}?autoplay=1&loop=1&playlist=${videoID}`;
-      document.getElementById("musicBtn").style.display = "none";
-    }
-  </script>
-  <!-- Tambahkan di dalam <body> kamu sebelum </body> -->
-<!-- Tombol musik -->
-<button id="musicBtn" onclick="playMusic()">🔊 Putar Musik</button>
-
-<!-- Iframe YouTube (tidak disembunyikan total) -->
-<iframe id="ytMusic" width="1" height="1" style="position: fixed; bottom: 10px; right: 10px; opacity: 0.01; z-index: 1;"
-  src=""
-  frameborder="0"
-  allow="autoplay"
-  allowfullscreen>
-</iframe>
-
-
-</body>
-</html>
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('ytMusic', {
+        height: '200',
+        width: '200',
+        videoId: 'D-VytLhH-KE',
+        playerVars: {
+          'autoplay': 0,
+         
