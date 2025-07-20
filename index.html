@@ -119,13 +119,13 @@
       transform: scale(1.05);
     }
 
-    /* Buat iframe (div) player disembunyikan tapi tetap ada */
+    /* Container untuk player YouTube (disembunyikan dengan opacity supaya gak ganggu layout) */
     #ytMusic {
       position: fixed;
       bottom: 10px;
       right: 10px;
-      width: 200px;
-      height: 200px;
+      width: 0;
+      height: 0;
       opacity: 0;
       pointer-events: none;
       z-index: 1;
@@ -155,7 +155,7 @@
   <!-- Tombol musik -->
   <button id="musicBtn" onclick="playMusic()">🔊 Putar Musik</button>
 
-  <!-- Tempat player YouTube API -->
+  <!-- Div untuk YouTube player -->
   <div id="ytMusic"></div>
 
   <!-- Section 1 -->
@@ -232,16 +232,70 @@
     Created with full of love 💞 by ainun cantik yang mencintaimu dengan tulus 💖
   </footer>
 
-  <!-- YouTube Iframe API -->
+  <!-- YouTube Iframe API script -->
   <script src="https://www.youtube.com/iframe_api"></script>
   <script>
     let player;
+    let musicStarted = false;
 
+    // Fungsi ini otomatis dipanggil oleh API YouTube saat script sudah siap
     function onYouTubeIframeAPIReady() {
       player = new YT.Player('ytMusic', {
-        height: '200',
-        width: '200',
-        videoId: 'D-VytLhH-KE',
+        height: '0',
+        width: '0',
+        videoId: 'D-VytLhH-KE', // ganti dengan video yang kamu mau
         playerVars: {
-          'autoplay': 0,
-         
+          autoplay: 0,
+          controls: 0,
+          loop: 1,
+          playlist: 'D-VytLhH-KE',
+          modestbranding: 1,
+          fs: 0,
+          rel: 0,
+          showinfo: 0,
+          mute: 1 // mulai mute agar bisa autoplay di browser yang ketat
+        },
+        events: {
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
+        }
+      });
+    }
+
+    function onPlayerReady(event) {
+      // Player sudah siap, bisa kita unmute nanti saat user klik tombol
+      // biar gak autoplay otomatis tanpa interaksi user (banned di iOS)
+    }
+
+    function onPlayerStateChange(event) {
+      if(event.data === YT.PlayerState.ENDED) {
+        player.playVideo(); // loop manual kalau perlu
+      }
+    }
+
+    function playMusic() {
+      if(!musicStarted) {
+        player.unMute();
+        player.playVideo();
+        musicStarted = true;
+        // sembunyikan tombol setelah play
+        document.getElementById('musicBtn').style.display = 'none';
+      }
+    }
+
+    // Scroll reveal effect (biar teks muncul perlahan)
+    const sections = document.querySelectorAll('.reveal');
+    function revealOnScroll() {
+      const triggerBottom = window.innerHeight * 0.85;
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        if (top < triggerBottom) {
+          section.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+</body>
+</html>
