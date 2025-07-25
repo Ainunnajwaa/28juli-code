@@ -98,17 +98,31 @@
       text-shadow: 1px 1px 2px #fce4ec;
     }
 
-    /* Musik Player */
+    /* YouTube Music Player */
     #musicWrapper {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
+      bottom: 15px;
+      right: 15px;
       z-index: 999;
-      background-color: rgba(255, 239, 220, 0.95);
-      padding: 10px;
-      border-radius: 15px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      text-align: center;
+      background-color: transparent;
+      width: 80px;
+      height: 45px;
+      opacity: 0.2;
+      overflow: hidden;
+      border-radius: 10px;
+      transition: opacity 0.3s ease;
+    }
+
+    #musicWrapper iframe {
+      width: 100px;
+      height: 60px;
+      border: none;
+      transform: scale(0.8);
+      pointer-events: auto;
+    }
+
+    #musicWrapper:hover {
+      opacity: 1;
     }
 
     @media (max-width: 600px) {
@@ -127,34 +141,19 @@
       .gallery {
         grid-template-columns: repeat(2, 1fr);
       }
-
-      #musicWrapper {
-        width: 90%;
-        left: 5%;
-        right: 5%;
-      }
-
-      #musicWrapper iframe {
-        width: 100%;
-        height: auto;
-      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Musik YouTube Player -->
+  <!-- Musik Jazz Bersamamu dari YouTube (hampir tak terlihat, tapi bisa diklik) -->
   <div id="musicWrapper">
-    <iframe width="250" height="140"
+    <iframe 
       src="https://www.youtube.com/embed/D-VytLhH-KE?rel=0&autoplay=0&controls=1"
       title="Jazz Bersamamu"
-      frameborder="0"
       allow="autoplay"
       allowfullscreen>
     </iframe>
-    <p style="font-size: 0.9rem; color: #7a4a4a; text-align: center; margin-top: 5px;">
-      🎶 Klik play untuk mulai musik yaa sayang 💖
-    </p>
   </div>
 
   <!-- Section 1 -->
