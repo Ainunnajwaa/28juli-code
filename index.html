@@ -119,16 +119,13 @@
       transform: scale(1.05);
     }
 
-    /* Container untuk player YouTube (disembunyikan dengan opacity supaya gak ganggu layout) */
-    #ytMusic {
+    iframe#ytMusic {
       position: fixed;
-      bottom: 10px;
-      right: 10px;
       width: 0;
       height: 0;
       opacity: 0;
       pointer-events: none;
-      z-index: 1;
+      z-index: -1;
     }
 
     @media (max-width: 600px) {
@@ -155,8 +152,13 @@
   <!-- Tombol musik -->
   <button id="musicBtn" onclick="playMusic()">🔊 Putar Musik</button>
 
-  <!-- Div untuk YouTube player -->
-  <div id="ytMusic"></div>
+  <!-- YouTube embed player -->
+  <iframe id="ytMusic"
+    src="https://www.youtube.com/embed/D-VytLhH-KE?enablejsapi=1&rel=0&autoplay=0&loop=1&playlist=D-VytLhH-KE"
+    frameborder="0"
+    allow="autoplay"
+    allowfullscreen>
+  </iframe>
 
   <!-- Section 1 -->
   <section class="reveal">
@@ -171,7 +173,7 @@
     <h2>🎂 Happy Sweet 21 bebee sayangku </h2>
     <p>hari ini umur kamu bertambah jadi 21 tahun sayang, and i pray a lot for you bebee, terimakasiyy ya sudah
       selalu ada buat aku dan kasih aku banyak kebahagiaan,semoga kebahagiaan kamu hari ini berlipat ganda setiap tahunnya,semoga cintaku bisa selalu menemani langkah langkahmu,
-      semoga di hari spesial ini semua doa yang mama,bapa,aku dan kamu panjatin bakal terkabul,semoga kamu sehat terus dan panjang umur biar bisa cobain banyak hal dan menua sama aku yang paling dalem semoga lo selalu beriringan dengan kebahagiaan ya sayang,
+      semoga di hari spesial ini semua doa yang mama,bapa,aku dan kamu panjatin bakal terkabul,semoga kamu sehat terus dan panjang umur biar bisa cobain banyak hal dan menua sama aku yang paling dalem semoga kamu  selalu beriringan dengan kebahagiaan ya sayang,
       semoga kamu selalu dilindungi Allah,semoga goals kamu tahun ini dan seterusnya tercapai,dan semoga kamu diberi kelancaran yaa di setiap langkah yang kamu ambil.
     </p>
   </section>
@@ -238,58 +240,15 @@
     Created with full of love 💞 by ainun cantik yang selalu cinta kamu dengan tulus 💖
   </footer>
 
-  <!-- YouTube Iframe API script -->
-  <script src="https://www.youtube.com/iframe_api"></script>
   <script>
-    let player;
-    let musicStarted = false;
-
-    // Fungsi ini otomatis dipanggil oleh API YouTube saat script sudah siap
-    function onYouTubeIframeAPIReady() {
-      player = new YT.Player('ytMusic', {
-        height: '0',
-        width: '0',
-        videoId: 'D-VytLhH-KE', // ganti dengan video yang kamu mau
-        playerVars: {
-          autoplay: 0,
-          controls: 0,
-          loop: 1,
-          playlist: 'D-VytLhH-KE',
-          modestbranding: 1,
-          fs: 0,
-          rel: 0,
-          showinfo: 0,
-          mute: 1 // mulai mute agar bisa autoplay di browser yang ketat
-        },
-        events: {
-          'onReady': onPlayerReady,
-          'onStateChange': onPlayerStateChange
-        }
-      });
-    }
-
-    function onPlayerReady(event) {
-      // Player sudah siap, bisa kita unmute nanti saat user klik tombol
-      // biar gak autoplay otomatis tanpa interaksi user (banned di iOS)
-    }
-
-    function onPlayerStateChange(event) {
-      if(event.data === YT.PlayerState.ENDED) {
-        player.playVideo(); // loop manual kalau perlu
-      }
-    }
-
+    // Play YouTube via postMessage
     function playMusic() {
-      if(!musicStarted) {
-        player.unMute();
-        player.playVideo();
-        musicStarted = true;
-        // sembunyikan tombol setelah play
-        document.getElementById('musicBtn').style.display = 'none';
-      }
+      const iframe = document.getElementById('ytMusic').contentWindow;
+      iframe.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+      document.getElementById('musicBtn').style.display = 'none';
     }
 
-    // Scroll reveal effect (biar teks muncul perlahan)
+    // Scroll reveal
     const sections = document.querySelectorAll('.reveal');
     function revealOnScroll() {
       const triggerBottom = window.innerHeight * 0.85;
@@ -300,6 +259,7 @@
         }
       });
     }
+
     window.addEventListener('scroll', revealOnScroll);
     window.addEventListener('load', revealOnScroll);
   </script>
