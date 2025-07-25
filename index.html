@@ -98,38 +98,31 @@
       text-shadow: 1px 1px 2px #fce4ec;
     }
 
-    /* Tombol Musik */
-    #musicBtn {
+    /* YouTube Music Player */
+    #musicWrapper {
       position: fixed;
-      top: 20px;
-      right: 20px;
-      padding: 10px 16px;
-      font-family: 'Dancing Script', cursive;
-      font-size: 1.2rem;
-      background-color: #fce4ec;
-      color: #7a4a4a;
+      bottom: 15px;
+      right: 15px;
+      z-index: 999;
+      background-color: transparent;
+      width: 80px;
+      height: 45px;
+      opacity: 0.2;
+      overflow: hidden;
+      border-radius: 10px;
+      transition: opacity 0.3s ease;
+    }
+
+    #musicWrapper iframe {
+      width: 100px;
+      height: 60px;
       border: none;
-      border-radius: 12px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-      cursor: pointer;
-      z-index: 1000;
-      transition: transform 0.2s ease;
+      transform: scale(0.8);
+      pointer-events: auto;
     }
 
-    #musicBtn:hover {
-      transform: scale(1.05);
-    }
-
-    /* Player tersembunyi */
-    #ytPlayer {
-      position: fixed;
-      width: 1px;
-      height: 1px;
-      bottom: 0;
-      right: 0;
-      opacity: 0;
-      pointer-events: none;
-      z-index: -1;
+    #musicWrapper:hover {
+      opacity: 1;
     }
 
     @media (max-width: 600px) {
@@ -153,20 +146,15 @@
 </head>
 <body>
 
-  <!-- Tombol play musik -->
-  <button id="musicBtn" onclick="playMusic()">🔊 Play Musik</button>
-
-  <!-- YouTube Lirik Player tersembunyi -->
-  <iframe 
-    id="ytPlayer"
-    src="https://www.youtube.com/embed/lnuFWMnyKk0?enablejsapi=1&rel=0&autoplay=0&controls=1"
-    title="Jazz Bersamamu - Lirik"
-    allow="autoplay"
-    allowfullscreen>
-  </iframe>
-
-  <!-- Section 1 sampai akhir (tetap sesuai isi kamu) -->
-  <!-- ... (copy semua section yang sudah kamu buat sebelumnya di atas) ... -->
+  <!-- Musik Jazz Bersamamu dari YouTube (hampir tak terlihat, tapi bisa diklik) -->
+  <div id="musicWrapper">
+    <iframe 
+      src="https://www.youtube.com/embed/D-VytLhH-KE?rel=0&autoplay=0&controls=1"
+      title="Jazz Bersamamu"
+      allow="autoplay"
+      allowfullscreen>
+    </iframe>
+  </div>
 
   <!-- Section 1 -->
   <section class="reveal">
@@ -176,21 +164,79 @@
       lahir di dunia ini dan aku mau kamu tau seberapaa dalam dan luaaas nyaaa aku mencintaimu.</p>
   </section>
 
-  <!-- (lanjutkan Section 2 hingga Section 6 dan footer seperti biasa) -->
+  <!-- Section 2 -->
+  <section class="reveal">
+    <h2>🎂 Happy Sweet 21 bebee sayangku </h2>
+    <p>hari ini umur kamu bertambah jadi 21 tahun sayang, and i pray a lot for you bebee, terimakasiyy ya sudah
+      selalu ada buat aku dan kasih aku banyak kebahagiaan,semoga kebahagiaan kamu hari ini berlipat ganda setiap tahunnya,semoga cintaku bisa selalu menemani langkah langkahmu,
+      semoga di hari spesial ini semua doa yang mama,bapa,aku dan kamu panjatin bakal terkabul,semoga kamu sehat terus dan panjang umur biar bisa cobain banyak hal dan menua sama aku yang paling dalem semoga kamu  selalu beriringan dengan kebahagiaan ya sayang,
+      semoga kamu selalu dilindungi Allah,semoga goals kamu tahun ini dan seterusnya tercapai,dan semoga kamu diberi kelancaran yaa di setiap langkah yang kamu ambil.
+    </p>
+  </section>
+
+  <!-- Section 3 -->
+  <section class="reveal">
+    <h2>📸 Slice of Our Gallery </h2>
+    <p>12 potongan waktu (literally 5 hari) yang penuh cinta— beberapa moment kecil tapi bermakna besar dalam hidup kita
+      nanti kita tambah lagi ya gallery cinta nya.</p>
+    <div class="gallery">
+      <img src="foto1.jpg" alt="Foto 1" />
+      <img src="foto2.jpg" alt="Foto 2" />
+      <img src="foto3.jpg" alt="Foto 3" />
+      <img src="foto4.jpg" alt="Foto 4" />
+      <img src="foto5.jpg" alt="Foto 5" />
+      <img src="foto6.jpg" alt="Foto 6" />
+      <img src="foto7.jpg" alt="Foto 7" />
+      <img src="foto8.jpg" alt="Foto 8" />
+      <img src="foto9.jpg" alt="Foto 9" />
+      <img src="foto10.jpg" alt="Foto 10" />
+      <img src="foto11.jpg" alt="Foto 11" />
+      <img src="foto12.jpg" alt="Foto 12" />
+    </div>
+  </section>
+
+  <!-- Section 4 -->
+  <section class="reveal">
+    <h2>🫶 from my deepest heart</h2>
+    <p>aku selalu berdoa supaya setiap langkahmu dimudahkan, setiap mimpimu tercapai,setiap kesempatan yang ada selalu kamu
+      pergunain dengan baik,dan setiap harimu penuh cinta—dari semesta dan dariku.
+      karena kamu pantas dapat yang terbaik di dunia ini. bebee aku mau jadi alasan kamu bahagia setiap hari, yang nemenin kamu bukan cuma di ulang tahun tapi di setiap detik
+      hidup kamu (maaf lebai) bebe this my first b'day web i creat for u with love, sederhana sih tapi semoga kamu suka yaa sama web aku ini. 
+      aku selalu bersyukur punya kamu dihidupku, inget yaa bebe sekarang kamu nda sendirian jalanin semua nya, ajak aku di prosesmu yaa aku bakal selalu ada untuk kamu
+      terus jadi versi terbaik dari diri kamu ya sayang, aku bangga sekali sama semua pencapaian kamu, kamu keren sudaa survive selama ini akuu sayangg sekali sama bebee</p>
+  </section>
+
+  <!-- Section 5 -->
+  <section class="reveal">
+    <h2>💖 love love love </h2>
+    <p>
+      ayo kita lanjutin perjalanan ini berdua, saling beriringan dan pegangan tangan yaa semoga kita sampai ditujuan yang sama sayang
+      semoga tahun tahun berikutnya kita bisa celebrate b'day berdua langsung duduk dimeja yang sama dan tiup lilin berdua,
+      jangan lupa senyum dan love your self like you love me, you desserve anything sayang ✨
+    </p>
+  </section>
+
+  <!-- Section 6 -->
+  <section class="reveal">
+    <h2>✨ in future</h2>
+    <p>
+      aku gak tau apa yang bakal terjadi besok.
+      tapi satu hal yang aku yakin banget—aku mau jalanin semuanya sama kamu.
+      merayakan ulang tahun demi ulang tahun, menua bersama,
+      dan ciptain kisah cinta yang gak akan terlupakan.
+      bahagia terus ya, cintaku 💖
+      love you more than words,
+      forever sounds good if it’s with you 🤍✨
+      happy birthday again, sayangkuuuu!!
+      love you to the moon and back 🎂🌙💕
+    </p>
+  </section>
 
   <footer>
     Created with full of love 💞 by ainun cantik yang selalu cinta kamu dengan tulus 💖
   </footer>
 
   <script>
-    // Play musik saat tombol diklik
-    function playMusic() {
-      const iframe = document.getElementById('ytPlayer').contentWindow;
-      iframe.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-      document.getElementById('musicBtn').style.display = 'none';
-    }
-
-    // Scroll reveal animasi
     const sections = document.querySelectorAll('.reveal');
     function revealOnScroll() {
       const triggerBottom = window.innerHeight * 0.85;
