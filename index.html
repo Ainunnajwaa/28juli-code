@@ -18,7 +18,7 @@
 
     body {
       font-family: 'Dancing Script', cursive;
-      color: #543a2b;
+      color: #d3987d; /* soft peach */
       background-image: url('heart.jpg');
       background-repeat: no-repeat;
       background-position: center center;
@@ -55,14 +55,14 @@
     h1, h2 {
       font-size: 2.8rem;
       margin-bottom: 20px;
-      color: #7a4a4a;
+      color: #e5a58a; /* heading peach */
       text-shadow: 1px 1px 2px #fce4ec;
     }
 
     p {
       font-size: 1.3rem;
       max-width: 90%;
-      color: #5a3a3a;
+      color: #d3987d;
       white-space: pre-line;
     }
 
@@ -93,22 +93,33 @@
       text-align: center;
       padding: 40px 20px;
       font-size: 1.1rem;
-      color: #7a4a4a;
+      color: #d3987d;
       font-weight: 600;
       text-shadow: 1px 1px 2px #fce4ec;
     }
 
-    .youtube-container {
-      margin: 20px auto;
-      display: flex;
-      justify-content: center;
+    /* YouTube Music Mini Player (transparan & pojok kanan) */
+    #yt-music {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 150px;
+      height: 84px;
+      opacity: 0.2;
+      transition: opacity 0.3s ease;
+      z-index: 999;
+      border-radius: 12px;
+      overflow: hidden;
     }
 
-    .youtube-container iframe {
-      width: 320px;
-      height: 180px;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    #yt-music:hover {
+      opacity: 0.6;
+    }
+
+    #yt-music iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
     }
 
     @media (max-width: 600px) {
@@ -128,17 +139,19 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .youtube-container iframe {
-        width: 260px;
-        height: 150px;
+      #yt-music {
+        width: 120px;
+        height: 68px;
+        bottom: 10px;
+        right: 10px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Video Musik -->
-  <div class="youtube-container">
+  <!-- Mini YouTube player di pojok kanan bawah -->
+  <div id="yt-music">
     <iframe 
       src="https://www.youtube.com/embed/lnuFWMnyKk0?rel=0&autoplay=0&controls=1"
       title="Jazz Bersamamu Lirik"
