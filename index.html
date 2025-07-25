@@ -37,7 +37,7 @@
       align-items: center;
       padding: 60px 20px;
       text-align: center;
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 239, 220, 0.85); /* LEBIH HANGAT dari putih polos */
       margin: 30px auto;
       max-width: 750px;
       border-radius: 20px;
@@ -98,36 +98,6 @@
       text-shadow: 1px 1px 2px #fce4ec;
     }
 
-    #musicBtn {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      padding: 10px 20px;
-      font-family: 'Dancing Script', cursive;
-      font-size: 1.2rem;
-      background-color: #fce4ec;
-      color: #7a4a4a;
-      border: none;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-      cursor: pointer;
-      z-index: 1000;
-      transition: transform 0.2s ease;
-    }
-
-    #musicBtn:hover {
-      transform: scale(1.05);
-    }
-
-    iframe#ytMusic {
-      position: fixed;
-      width: 0;
-      height: 0;
-      opacity: 0;
-      pointer-events: none;
-      z-index: -1;
-    }
-
     @media (max-width: 600px) {
       h1, h2 {
         font-size: 2.2rem;
@@ -148,17 +118,6 @@
   </style>
 </head>
 <body>
-
-  <!-- Tombol musik -->
-  <button id="musicBtn" onclick="playMusic()">🔊 Putar Musik</button>
-
-  <!-- YouTube embed player -->
-  <iframe id="ytMusic"
-    src="https://www.youtube.com/embed/D-VytLhH-KE?enablejsapi=1&rel=0&autoplay=0&loop=1&playlist=D-VytLhH-KE"
-    frameborder="0"
-    allow="autoplay"
-    allowfullscreen>
-  </iframe>
 
   <!-- Section 1 -->
   <section class="reveal">
@@ -241,14 +200,6 @@
   </footer>
 
   <script>
-    // Play YouTube via postMessage
-    function playMusic() {
-      const iframe = document.getElementById('ytMusic').contentWindow;
-      iframe.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-      document.getElementById('musicBtn').style.display = 'none';
-    }
-
-    // Scroll reveal
     const sections = document.querySelectorAll('.reveal');
     function revealOnScroll() {
       const triggerBottom = window.innerHeight * 0.85;
@@ -259,7 +210,6 @@
         }
       });
     }
-
     window.addEventListener('scroll', revealOnScroll);
     window.addEventListener('load', revealOnScroll);
   </script>
