@@ -6,41 +6,21 @@
   <title>Birthday myboyfiee 💌</title>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       font-family: 'Dancing Script', cursive;
-      color: #543a2b;
-      background-image: url('heart.jpg');
-      background-repeat: no-repeat;
-      background-position: center center;
+      background: #f5efe6 url('heart.jpg') no-repeat center center fixed;
       background-size: cover;
-      background-attachment: fixed;
-      background-color: #f5efe6;
-      min-height: 100vh;
+      margin: 0;
       overflow-x: hidden;
     }
 
     section {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 60px 20px;
-      text-align: center;
       background: rgba(255, 239, 220, 0.85);
       margin: 30px auto;
-      max-width: 750px;
+      padding: 60px 20px;
       border-radius: 20px;
+      max-width: 750px;
+      text-align: center;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       opacity: 0;
       transform: translateY(30px);
@@ -53,15 +33,13 @@
     }
 
     h1, h2 {
-      font-size: 2.8rem;
-      margin-bottom: 20px;
+      font-size: 2.5rem;
       color: #7a4a4a;
       text-shadow: 1px 1px 2px #fce4ec;
     }
 
     p {
-      font-size: 1.3rem;
-      max-width: 90%;
+      font-size: 1.2rem;
       color: #5a3a3a;
       white-space: pre-line;
     }
@@ -71,7 +49,6 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 15px;
       margin-top: 30px;
-      width: 100%;
     }
 
     .gallery img {
@@ -79,14 +56,31 @@
       aspect-ratio: 1 / 1;
       object-fit: cover;
       border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-      transition: transform 0.3s ease;
-      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
     }
 
-    .gallery img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+    #musicBtn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 999;
+      background: #fce4ec;
+      color: #7a4a4a;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      font-family: 'Dancing Script', cursive;
+    }
+
+    iframe#ytPlayer {
+      position: fixed;
+      width: 0;
+      height: 0;
+      opacity: 0;
+      pointer-events: none;
     }
 
     footer {
@@ -95,68 +89,38 @@
       font-size: 1.1rem;
       color: #7a4a4a;
       font-weight: 600;
-      text-shadow: 1px 1px 2px #fce4ec;
-    }
-
-    /* YouTube Music Player */
-    #musicWrapper {
-      position: fixed;
-      bottom: 15px;
-      right: 15px;
-      z-index: 999;
-      background-color: transparent;
-      width: 80px;
-      height: 45px;
-      opacity: 0.2;
-      overflow: hidden;
-      border-radius: 10px;
-      transition: opacity 0.3s ease;
-    }
-
-    #musicWrapper iframe {
-      width: 100px;
-      height: 60px;
-      border: none;
-      transform: scale(0.8);
-      pointer-events: auto;
-    }
-
-    #musicWrapper:hover {
-      opacity: 1;
     }
 
     @media (max-width: 600px) {
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
       h1, h2 {
-        font-size: 2.2rem;
+        font-size: 2rem;
       }
 
       p {
-        font-size: 1.1rem;
-      }
-
-      section {
-        margin: 20px 15px;
-      }
-
-      .gallery {
-        grid-template-columns: repeat(2, 1fr);
+        font-size: 1rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Musik Jazz Bersamamu dari YouTube (hampir tak terlihat, tapi bisa diklik) -->
-  <div id="musicWrapper">
-    <iframe 
-      src="https://www.youtube.com/embed/D-VytLhH-KE?rel=0&autoplay=0&controls=1"
-      title="Jazz Bersamamu"
-      allow="autoplay"
-      allowfullscreen>
-    </iframe>
-  </div>
+  <!-- Tombol Musik -->
+  <button id="musicBtn" onclick="playMusic()">▶️ Play Musik</button>
 
-  <!-- Section 1 -->
+  <!-- Iframe YouTube disembunyikan -->
+  <iframe
+    id="ytPlayer"
+    src="https://www.youtube.com/embed/D-VytLhH-KE?enablejsapi=1&rel=0&controls=0"
+    allow="autoplay"
+    allowfullscreen
+    frameborder="0"
+  ></iframe>
+
+  <!-- Isi Web -->
   <section class="reveal">
     <h1>💌 Love latter untuk cintaku</h1>
     <h1>28-07-2025</h1>
@@ -164,7 +128,6 @@
       lahir di dunia ini dan aku mau kamu tau seberapaa dalam dan luaaas nyaaa aku mencintaimu.</p>
   </section>
 
-  <!-- Section 2 -->
   <section class="reveal">
     <h2>🎂 Happy Sweet 21 bebee sayangku </h2>
     <p>hari ini umur kamu bertambah jadi 21 tahun sayang, and i pray a lot for you bebee, terimakasiyy ya sudah
@@ -174,28 +137,26 @@
     </p>
   </section>
 
-  <!-- Section 3 -->
   <section class="reveal">
     <h2>📸 Slice of Our Gallery </h2>
     <p>12 potongan waktu (literally 5 hari) yang penuh cinta— beberapa moment kecil tapi bermakna besar dalam hidup kita
       nanti kita tambah lagi ya gallery cinta nya.</p>
     <div class="gallery">
-      <img src="foto1.jpg" alt="Foto 1" />
-      <img src="foto2.jpg" alt="Foto 2" />
-      <img src="foto3.jpg" alt="Foto 3" />
-      <img src="foto4.jpg" alt="Foto 4" />
-      <img src="foto5.jpg" alt="Foto 5" />
-      <img src="foto6.jpg" alt="Foto 6" />
-      <img src="foto7.jpg" alt="Foto 7" />
-      <img src="foto8.jpg" alt="Foto 8" />
-      <img src="foto9.jpg" alt="Foto 9" />
-      <img src="foto10.jpg" alt="Foto 10" />
-      <img src="foto11.jpg" alt="Foto 11" />
-      <img src="foto12.jpg" alt="Foto 12" />
+      <img src="foto1.jpg" />
+      <img src="foto2.jpg" />
+      <img src="foto3.jpg" />
+      <img src="foto4.jpg" />
+      <img src="foto5.jpg" />
+      <img src="foto6.jpg" />
+      <img src="foto7.jpg" />
+      <img src="foto8.jpg" />
+      <img src="foto9.jpg" />
+      <img src="foto10.jpg" />
+      <img src="foto11.jpg" />
+      <img src="foto12.jpg" />
     </div>
   </section>
 
-  <!-- Section 4 -->
   <section class="reveal">
     <h2>🫶 from my deepest heart</h2>
     <p>aku selalu berdoa supaya setiap langkahmu dimudahkan, setiap mimpimu tercapai,setiap kesempatan yang ada selalu kamu
@@ -206,7 +167,6 @@
       terus jadi versi terbaik dari diri kamu ya sayang, aku bangga sekali sama semua pencapaian kamu, kamu keren sudaa survive selama ini akuu sayangg sekali sama bebee</p>
   </section>
 
-  <!-- Section 5 -->
   <section class="reveal">
     <h2>💖 love love love </h2>
     <p>
@@ -216,7 +176,6 @@
     </p>
   </section>
 
-  <!-- Section 6 -->
   <section class="reveal">
     <h2>✨ in future</h2>
     <p>
@@ -236,20 +195,27 @@
     Created with full of love 💞 by ainun cantik yang selalu cinta kamu dengan tulus 💖
   </footer>
 
+  <!-- Script YouTube Control -->
   <script>
-    const sections = document.querySelectorAll('.reveal');
+    function playMusic() {
+      const player = document.getElementById("ytPlayer").contentWindow;
+      player.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+      document.getElementById("musicBtn").style.display = "none";
+    }
+
+    // Reveal effect
+    const sections = document.querySelectorAll(".reveal");
     function revealOnScroll() {
-      const triggerBottom = window.innerHeight * 0.85;
-      sections.forEach(section => {
-        const top = section.getBoundingClientRect().top;
-        if (top < triggerBottom) {
-          section.classList.add('visible');
+      const trigger = window.innerHeight * 0.85;
+      sections.forEach(sec => {
+        if (sec.getBoundingClientRect().top < trigger) {
+          sec.classList.add("visible");
         }
       });
     }
 
-    window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('load', revealOnScroll);
+    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("load", revealOnScroll);
   </script>
 </body>
 </html>
