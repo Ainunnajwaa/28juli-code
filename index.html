@@ -37,7 +37,7 @@
       align-items: center;
       padding: 60px 20px;
       text-align: center;
-      background: rgba(255, 239, 220, 0.85); /* LEBIH HANGAT dari putih polos */
+      background: rgba(255, 239, 220, 0.85);
       margin: 30px auto;
       max-width: 750px;
       border-radius: 20px;
@@ -98,6 +98,19 @@
       text-shadow: 1px 1px 2px #fce4ec;
     }
 
+    /* Musik Player */
+    #musicWrapper {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+      background-color: rgba(255, 239, 220, 0.95);
+      padding: 10px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
     @media (max-width: 600px) {
       h1, h2 {
         font-size: 2.2rem;
@@ -114,10 +127,35 @@
       .gallery {
         grid-template-columns: repeat(2, 1fr);
       }
+
+      #musicWrapper {
+        width: 90%;
+        left: 5%;
+        right: 5%;
+      }
+
+      #musicWrapper iframe {
+        width: 100%;
+        height: auto;
+      }
     }
   </style>
 </head>
 <body>
+
+  <!-- Musik YouTube Player -->
+  <div id="musicWrapper">
+    <iframe width="250" height="140"
+      src="https://www.youtube.com/embed/D-VytLhH-KE?rel=0&autoplay=0&controls=1"
+      title="Jazz Bersamamu"
+      frameborder="0"
+      allow="autoplay"
+      allowfullscreen>
+    </iframe>
+    <p style="font-size: 0.9rem; color: #7a4a4a; text-align: center; margin-top: 5px;">
+      🎶 Klik play untuk mulai musik yaa sayang 💖
+    </p>
+  </div>
 
   <!-- Section 1 -->
   <section class="reveal">
@@ -210,6 +248,7 @@
         }
       });
     }
+
     window.addEventListener('scroll', revealOnScroll);
     window.addEventListener('load', revealOnScroll);
   </script>
