@@ -98,24 +98,17 @@
       text-shadow: 1px 1px 2px #fce4ec;
     }
 
-    /* YouTube Music Player - kecil & transparan */
-    #musicWrapper {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      width: 40px;
-      height: 24px;
-      opacity: 0.08;
-      z-index: 999;
-      overflow: hidden;
+    .youtube-container {
+      margin: 20px auto;
+      display: flex;
+      justify-content: center;
     }
 
-    #musicWrapper iframe {
-      width: 100px;
-      height: 60px;
-      border: none;
-      transform: scale(0.4);
-      pointer-events: auto;
+    .youtube-container iframe {
+      width: 320px;
+      height: 180px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
     }
 
     @media (max-width: 600px) {
@@ -134,13 +127,18 @@
       .gallery {
         grid-template-columns: repeat(2, 1fr);
       }
+
+      .youtube-container iframe {
+        width: 260px;
+        height: 150px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- YouTube Jazz Bersamamu versi lirik -->
-  <div id="musicWrapper">
+  <!-- Video Musik -->
+  <div class="youtube-container">
     <iframe 
       src="https://www.youtube.com/embed/lnuFWMnyKk0?rel=0&autoplay=0&controls=1"
       title="Jazz Bersamamu Lirik"
