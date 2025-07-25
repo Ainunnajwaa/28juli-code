@@ -18,13 +18,13 @@
 
     body {
       font-family: 'Dancing Script', cursive;
-      color: #d3987d; /* soft peach */
-      background-image: url('heart.jpg');
+      color: #d0815e; /* warna peach gelap yang cocok di atas peach bg */
+      background-image: url('8f14220d-1b74-4df0-a2ce-7931ece0f504.png');
       background-repeat: no-repeat;
       background-position: center center;
       background-size: cover;
       background-attachment: fixed;
-      background-color: #f5efe6;
+      background-color: #fceee5;
       min-height: 100vh;
       overflow-x: hidden;
     }
@@ -37,11 +37,11 @@
       align-items: center;
       padding: 60px 20px;
       text-align: center;
-      background: rgba(255, 239, 220, 0.85);
+      background: rgba(255, 248, 240, 0.9); /* peach lembut transparan */
       margin: 30px auto;
       max-width: 750px;
       border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
       opacity: 0;
       transform: translateY(30px);
       transition: all 0.8s ease-out;
@@ -55,14 +55,14 @@
     h1, h2 {
       font-size: 2.8rem;
       margin-bottom: 20px;
-      color: #e5a58a; /* heading peach */
-      text-shadow: 1px 1px 2px #fce4ec;
+      color: #d8745a;
+      text-shadow: 1px 1px 2px #fde9e4;
     }
 
     p {
       font-size: 1.3rem;
       max-width: 90%;
-      color: #d3987d;
+      color: #a75a45;
       white-space: pre-line;
     }
 
@@ -93,30 +93,25 @@
       text-align: center;
       padding: 40px 20px;
       font-size: 1.1rem;
-      color: #d3987d;
+      color: #c46955;
       font-weight: 600;
       text-shadow: 1px 1px 2px #fce4ec;
     }
 
-    /* YouTube Music Mini Player (transparan & pojok kanan) */
-    #yt-music {
+    /* Video YouTube kecil di pojok bawah kanan */
+    #musicPlayer {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 150px;
-      height: 84px;
-      opacity: 0.2;
-      transition: opacity 0.3s ease;
-      z-index: 999;
+      bottom: 15px;
+      right: 15px;
+      width: 130px;
+      height: 75px;
+      z-index: 1000;
       border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
       overflow: hidden;
     }
 
-    #yt-music:hover {
-      opacity: 0.6;
-    }
-
-    #yt-music iframe {
+    #musicPlayer iframe {
       width: 100%;
       height: 100%;
       border: none;
@@ -139,22 +134,20 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
-      #yt-music {
-        width: 120px;
-        height: 68px;
-        bottom: 10px;
-        right: 10px;
+      #musicPlayer {
+        width: 110px;
+        height: 65px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Mini YouTube player di pojok kanan bawah -->
-  <div id="yt-music">
-    <iframe 
+  <!-- YouTube music -->
+  <div id="musicPlayer">
+    <iframe
       src="https://www.youtube.com/embed/lnuFWMnyKk0?rel=0&autoplay=0&controls=1"
-      title="Jazz Bersamamu Lirik"
+      title="Jazz Bersamamu - Lirik"
       allow="autoplay"
       allowfullscreen>
     </iframe>
@@ -163,7 +156,7 @@
   <!-- Section 1 -->
   <section class="reveal">
     <h1>💌 Love latter untuk cintaku</h1>
-    <h1>28-07-2025</h1>
+    <h1>28–07–2025</h1>
     <p> halooo ada yang spesial lochh hari ini, hari ini ada yang ulang tahun siapaa yachh, hmm oohhh pacarkuuu si bayil yang ulang tahun harii ini, hari ini hari yang paling buat aku bahagia karna kamu
       lahir di dunia ini dan aku mau kamu tau seberapaa dalam dan luaaas nyaaa aku mencintaimu.</p>
   </section>
