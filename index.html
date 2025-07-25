@@ -147,7 +147,47 @@
 <body>
 
   <!-- Musik Jazz Bersamamu dari YouTube (hampir tak terlihat, tapi bisa diklik) -->
-  <div id="musicWrapper">
+  <!-- Tombol Play untuk iOS agar bisa memulai musik -->
+<button id="playMusic" style="
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: #f5efe6;
+  border: 2px solid #b48c64;
+  border-radius: 10px;
+  padding: 10px 15px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.2rem;
+  color: #543a2b;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+">
+  🔊 Play Musik
+</button>
+
+<!-- Iframe Musik YouTube (tidak terlihat tapi bisa diputar manual) -->
+<div id="musicWrapper" style="display:none;">
+  <iframe 
+    id="ytplayer"
+    src=""
+    allow="autoplay"
+    title="Jazz Bersamamu"
+    width="0" height="0"
+    style="border:none;">
+  </iframe>
+</div>
+
+<script>
+  const button = document.getElementById('playMusic');
+  const iframe = document.getElementById('ytplayer');
+
+  button.addEventListener('click', () => {
+    iframe.src = "https://www.youtube.com/embed/D-VytLhH-KE?autoplay=1&rel=0&controls=0";
+    button.style.display = 'none'; // hide button after click
+  });
+</script>
+
     <iframe 
       src="https://www.youtube.com/embed/D-VytLhH-KE?rel=0&autoplay=0&controls=1"
       title="Jazz Bersamamu"
